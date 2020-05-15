@@ -47,16 +47,18 @@ $config['oxidized']['features']['versioning'] = true;
 
 Oxidized supports various ways to utilise credentials to login to
 devices, you can specify global username/password within Oxidized,
-Group level username/password or per device. LibreNMS currently
-supports sending groups back to Oxidized so that you can then define
-group credentials within Oxidized. To enable this support please
-switch on 'Enable the return of groups to Oxidized':
+Group level username/password or per device. 
+
+LibreNMS currently supports sending Groups back to Oxidized so that you 
+can then define Group credentials within Oxidized. Note that Group names for the Oxidized API are not mapped directly from LibreNMS Device Groups - they require specific matching in the configuration file via Overrides (see below).
+
+To present Groups via the API, please switch on 'Enable the return of groups to Oxidized':
 
 ```php
 $config['oxidized']['group_support'] = true;
 ```
 
-You can set a default group that devices will fall back to with:
+You can set a default group that devices will fall back to if they are not matched by an Override:
 
 ```php
 $config['oxidized']['default_group'] = 'default';
